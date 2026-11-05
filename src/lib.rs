@@ -1,11 +1,22 @@
-//! SigmaOS-webcam-recorder — Webcam capture and recording tool for SigmaOS
-//!
-//! Part of the SigmaOS multi-repository ecosystem.
-//! See https://github.com/AaryanSinghChauhan09/SigmaOS for details.
+#[derive(Debug, Clone)]
+pub struct CameraDevice {
+    pub device_node: String,
+    pub max_fps: u8,
+}
 
-#![allow(dead_code)]
+pub struct WebcamManager;
+impl WebcamManager {
+    pub fn is_valid_camera(dev: &CameraDevice) -> bool {
+        dev.device_node.starts_with("/dev/video") && dev.max_fps >= 24
+    }
+}
 
-/// Module entry point for SigmaOS-webcam-recorder
-pub fn version() -> &'static str {
-    env!("CARGO_PKG_VERSION")
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_webcam_validation() {
+        let cam = CameraDevice { device_node: "/dev/video0".into(), max_fps: 30 };
+        assert!(WebcamManager::is_valid_camera(&cam));
+    }
 }
