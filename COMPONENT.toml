@@ -1,7 +1,7 @@
 [component]
 name = "SigmaOS-webcam-recorder"
 tier = 3
-stability = "scaffold"
+stability = "beta"
 language = "rust"
 description = "Webcam photo / video recorder"
 upstream = ["https://github.com/omacom/monologue"]
@@ -11,6 +11,6 @@ provides = ["webcam-recorder", "video-preview-engine", "camera-capture"]
 depends_on = ["SigmaOS-system"]
 
 [maturity]
-status = "Scaffold"
+status = "Implemented"
 test_evidence = "Compiles and passes AAA unit tests"
 next_milestone = "Hardware and runtime integration"
