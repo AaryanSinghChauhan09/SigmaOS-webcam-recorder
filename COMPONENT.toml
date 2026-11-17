@@ -3,12 +3,12 @@ name = "SigmaOS-webcam-recorder"
 tier = 3
 stability = "scaffold"
 language = "rust"
-description = "Webcam video capture, microphone audio recording, and preview daemon"
+description = "Webcam photo / video recorder"
 upstream = ["https://github.com/omacom/monologue"]
 
 [contract]
 provides = ["webcam-recorder", "video-preview-engine", "camera-capture"]
-depends_on = []
+depends_on = ["SigmaOS-system"]
 
 [maturity]
 status = "Scaffold"
